@@ -1,0 +1,538 @@
+/* Hero Section */
+.hero-slider {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.slider {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35); /* bisa ubah 0.35 jadi 0.5 kalau masih kurang gelap */
+    z-index: 1;
+}
+
+/* Fokus gambar */
+.slide:nth-child(1) { background-position: center 70%; }
+.slide:nth-child(2) { background-position: center 63%; }
+.slide:nth-child(3) { background-position: 50% center; }
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: fadeSlide 1s ease forwards;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    color: #00f0ff; /* biru neon */
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #b4eff4, #c9ecf8); /* biru terang */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(175, 248, 253, 0.8);  /* efek glow biru neon */
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(65, 64, 64, 0.5);
+}
+
+.hero-text a.btn-primary {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-text a.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+/* Pembatas Tulisan*/
+.typewriter-container {
+    text-align: center;
+    margin: 40px auto;
+    padding: 10px;
+    max-width: 90%; /* biar fleksibel di HP */
+}
+
+.typewriter {
+    display: inline-block;
+    font-size: 22px;
+    color: #01eeff;
+    border-right: 3px solid #01eeff;
+    white-space: normal;       /* ✅ bisa turun ke bawah */
+    word-break: break-word;    /* ✅ kata panjang dipotong */
+    overflow: hidden;
+    animation: blink 0.7s infinite;
+    line-height: 1.4em;        /* ✅ biar jarak antar baris enak */
+    text-align: center;
+}
+
+/* Tombol navigasi slider */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* Dots */
+.dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    margin: 0 5px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.dot.active {
+    opacity: 1;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .hero-slider {
+        height: 450px;
+    }
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    .hero-text p {
+        font-size: 16px;
+    }
+    .prev, .next {
+        font-size: 20px;
+        padding: 8px;
+    }
+}
+
+/* ================= IPAD (Potrait & Landscape) ================= */
+
+/* iPad Portrait (768px – 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero-slider {
+        height: 420px; /* agak sedang biar proporsional */
+    }
+    .hero-text h1 {
+        font-size: 30px;
+    }
+    .hero-text p {
+        font-size: 16px;
+    }
+}
+
+/* ================= iPad Air (10.9 inch) ================= */
+/* Portrait & Landscape */
+@media (min-width: 819px) and (max-width: 1180px) {
+    .hero-text h1 {
+        font-size: 30px;
+    }
+    .hero-text p {
+        font-size: 15px;
+    }
+}
+
+/* iPad Pro Landscape (1025px – 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .hero-slider {
+        height: 500px; /* lebih tinggi daripada HP */
+    }
+    .top-bar .date, 
+    .top-bar .time {
+        font-size: 13px; /* agak kecil tapi tetap jelas */
+    }
+    .hero-text h1 {
+        font-size: 36px;
+    }
+    .hero-text p {
+        font-size: 18px;
+    }
+}
+
+/* HP besar */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 380px;
+    }
+    .hero-text h1 {
+        font-size: 26px;
+    }
+    .hero-text p {
+        font-size: 14px;
+    }
+    .hero-text a.btAn-primary {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* HP kecil */
+@media (max-width: 480px) {
+    .hero-slider {
+        height: 300px;
+    }
+    .hero-text h1 {
+        font-size: 20px;
+    }
+    .hero-text p {
+        font-size: 12px;
+    }
+    .prev, .next {
+        font-size: 18px;
+        padding: 6px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* ======================================== */
+/* ======= GLOBAL STYLING ======= */
+/* ======================================== */
+
+
+/* ======================================== */
+/* ======= SECTION 2: DEFINISI ======= */
+/* ======================================== */
+.info-section {
+  padding: 80px 10%;
+  text-align: center;
+  color: white;
+  background: linear-gradient(120deg, #001f1f, #003d3d, #00796b);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  border-top: 2px solid rgba(0, 255, 204, 0.15);
+  border-bottom: 2px solid rgba(0, 255, 204, 0.15);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.section-header h2 {
+  font-size: 2.5em;
+  color: #00ffcc;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #00ffcc;
+}
+
+.section-header h3 {
+  margin-top: 10px;
+  color: #a7ffeb;
+  font-weight: 600;
+  text-shadow: 0 0 8px #00e6b8;
+}
+
+.section-header p {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #e0f7fa;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6em;
+}
+
+.definisi-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+/* Gambar */
+.definisi-image {
+  flex: 1 1 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.definisi-image img {
+  width: 100%;
+  max-width: 400px;
+  border: 3px solid #00ffcc;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.definisi-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 255, 204, 0.8);
+}
+
+/* Card */
+.definisi-card {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sub-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 25px;
+  border-left: 5px solid #00e6b8;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+}
+
+.sub-card h4 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+.sub-card ul {
+  text-align: left;
+  padding-left: 20px;
+  color: #e0f7fa;
+}
+
+.sub-card li {
+  margin-bottom: 8px;
+  line-height: 1.5em;
+}
+
+/* ======================================== */
+/* ======= SECTION 3: PERBEDAAN ======= */
+/* ======================================== */
+.perbedaan-section {
+  background: linear-gradient(135deg, #e0f2f1, #c8e6c9);
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.perbedaan-section h2 {
+  font-size: 2.3em;
+  color: #004d40;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(0, 77, 64, 0.3);
+}
+
+.compare-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.compare-card {
+  background: white;
+  width: 320px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.compare-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.compare-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.compare-card h3 {
+  color: #00796b;
+  margin: 15px 0 10px;
+}
+
+.compare-card p {
+  padding: 0 20px 25px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* ======================================== */
+/* ======= SECTION 4: INFORMASI TAMBAHAN ======= */
+/* ======================================== */
+.lain-section {
+  padding: 80px 10%;
+  background: linear-gradient(120deg, #fafafa, #f1f8e9);
+  text-align: center;
+}
+
+.lain-section h2 {
+  font-size: 2.2em;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.lain-section p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* ======================================== */
+/* ======= SECTION 5: TENTANG KAMI ======= */
+/* ======================================== */
+.tentang-kami {
+  background: linear-gradient(135deg, #004e64, #007f8c);
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 10%;
+}
+
+.tentang-container {
+  max-width: 850px;
+  margin: auto;
+}
+
+.tentang-kami h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+.tentang-kami h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #00ffcc;
+  margin: 15px auto 0;
+  border-radius: 5px;
+}
+
+.tentang-kami p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #e0f7fa;
+}
+
+.signature {
+  margin-top: 40px;
+}
+.signature span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.signature p {
+  font-style: italic;
+  color: #a7ffeb;
+  margin-top: 5px;
+}
+
+/* ======================================== */
+/* ======= RESPONSIVE ======= */
+/* ======================================== */
+@media (max-width: 992px) {
+  .info-section {
+    padding: 60px 6%;
+  }
+  .section-header h2 {
+    font-size: 2.1em;
+  }
+  .definisi-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .compare-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-header h2 {
+    font-size: 1.8em;
+  }
+  .tentang-kami h2 {
+    font-size: 1.8rem;
+  }
+  .tentang-kami p {
+    font-size: 0.95rem;
+  }
+  .definisi-image img {
+    max-width: 320px;
+  }
+  .sub-card {
+    padding: 20px;
+  }
+  .lain-section {
+    padding: 60px 6%;
+  }
+}

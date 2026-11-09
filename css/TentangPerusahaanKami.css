@@ -1,0 +1,138 @@
+/* =============================== */
+/* PAGE: TENTANG PERUSAHAAN KAMI   */
+/* =============================== */
+
+body {
+  background: #f7faf9;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container utama */
+.about {
+  padding: 80px 10%;
+    background: linear-gradient(135deg, #046767, #066868, #083232, #00bfa5);
+  background-size: 300% 300%;
+  animation: bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.about .title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #c9fee7;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+/* Layout konten */
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Box informasi perusahaan */
+.info-box {
+  flex: 1;
+  min-width: 320px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.info-box p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.info-box strong {
+  color: #027b50;
+}
+
+.info-box a {
+  color: #00a896;
+  text-decoration: none;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* Box peta (ukuran tetap di laptop/PC) */
+.map-box {
+  flex: 1;
+  min-width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsif di HP (biar map tidak kepotong) */
+@media (max-width: 768px) {
+  .map-box {
+    height: 350px; /* sedikit lebih kecil di HP */
+  }
+}
+
+/* =============================== */
+/* RESPONSIVE DESIGN               */
+/* =============================== */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-box, .map-box {
+    width: 100%;
+  }
+
+  .about .title {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 60px 6%;
+  }
+
+  .info-box {
+    padding: 25px 20px;
+    font-size: 15px;
+  }
+
+  .map-box {
+    height: 350px;
+  }
+
+  .about .title {
+    font-size: 1.7rem;
+  }
+}

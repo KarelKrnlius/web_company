@@ -1,0 +1,209 @@
+/* Container Utama */
+.produk-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Judul Utama */
+h1 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Kategori */
+.kategori h2 {
+  background-color: #004080;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+/* Sub Kategori */
+.sub-kategori {
+  margin: 15px 0 10px 20px;
+}
+
+.sub-kategori h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* List Item Produk */
+.sub-kategori ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sub-kategori li {
+  padding: 14px 16px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  font-size: 1rem;
+}
+
+.sub-kategori li:hover {
+  background-color: #e3f2fd;
+  transform: translateX(3px);
+}
+
+/* Detail Box */
+.detail-box {
+  overflow: hidden;
+  background: #fff;
+  border-left: 5px solid #0077aa;
+  border-radius: 10px;
+  margin: 10px 0 15px 25px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.detail-box.active {
+  opacity: 1;
+}
+
+/* Konten di dalam Detail Box */
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-header {
+  border-bottom: 2px dashed #0077aa;
+  padding-bottom: 8px;
+  font-weight: bold;
+  color: #0077aa;
+  font-size: 1.1rem;
+}
+
+.detail-title {
+  display: inline-block;
+  background: #e3f2fd;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.detail-body {
+  line-height: 1.6;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Loading & Error */
+.detail-box .loading {
+  color: #666;
+  font-style: italic;
+}
+
+.detail-box .error {
+  color: #b00020;
+  font-weight: bold;
+}
+
+.error-header {
+  color: #b00020;
+  border-color: #b00020;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover tambahan untuk detail box */
+.detail-box:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .produk-container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .kategori h2 {
+    font-size: 1.2rem;
+  }
+
+  .sub-kategori h3 {
+    font-size: 1rem;
+  }
+
+  .sub-kategori li {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  .detail-box {
+    margin-left: 15px;
+    padding: 15px;
+  }
+
+  .detail-title {
+    font-size: 0.95rem;
+  }
+
+  .detail-body {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile View (tetap besar dan readable) */
+@media (max-width: 768px) {
+  .produk-container {
+    padding: 15px; /* sedikit lebih lega */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* lebih besar dari sebelumnya */
+  }
+
+  .kategori h2 {
+    font-size: 1.3rem; /* lebih jelas */
+    padding: 12px 16px;
+  }
+
+  .sub-kategori h3 {
+    font-size: 1.1rem; /* tetap jelas */
+  }
+
+  .sub-kategori li {
+    font-size: 1.05rem; /* lebih besar dari 1rem */
+    padding: 14px 16px; /* lebih nyaman di klik */
+  }
+
+  .detail-box {
+    margin-left: 10px;
+    padding: 20px; /* lebih lega */
+  }
+
+  .detail-title {
+    font-size: 1.05rem;
+  }
+
+  .detail-body {
+    font-size: 1.05rem;
+    line-height: 1.7; /* lebih mudah dibaca */
+  }
+}

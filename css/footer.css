@@ -1,0 +1,54 @@
+/* ========================= */
+/* ======== FOOTER ========= */
+/* ========================= */
+
+footer {
+  background: linear-gradient(90deg, #039b59, #00a896);
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+/* Tambahan efek hover lembut */
+footer p {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer p:hover {
+  color: #caffbf;
+  transform: scale(1.02);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  footer {
+    font-size: 15px;
+    padding: 18px 8px;
+  }
+}
+
+/* HP Landscape dan Mid-size */
+@media (max-width: 768px) {
+  footer {
+    font-size: 14px;
+    padding: 16px 6px;
+  }
+}
+
+/* HP Kecil (Smartphone) */
+@media (max-width: 480px) {
+  footer {
+    font-size: 13px;
+    padding: 14px 5px;
+  }
+
+  footer p {
+    line-height: 1.4;
+  }
+}

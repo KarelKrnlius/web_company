@@ -1,0 +1,213 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body full putih */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff; /* biar bawah full putih */
+}
+
+/* === NAVBAR (Glassmorphism) === */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /* gradient biru cerah → biru medium → biru agak gelap */
+    background: linear-gradient(
+        90deg,
+        #1dffd2,
+        #85f8d0,
+        #a4e6f1
+    );
+    background-size: 200% 200%;
+    animation: blueGradient 25s ease infinite;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Menu link */
+.nav-menu li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+/* Hover bubble kaca */
+.nav-menu li a:hover {
+    color: #0077b6;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 119, 182, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Navbar saat discroll */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Teks menu & logo agar kontras */
+.nav-menu li a, .nav-logo span {
+    color: #000; 
+}
+
+/* NAV CONTAINER */
+.nav-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+.nav-logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+.nav-logo span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* MENU */
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+.nav-menu li {
+    margin-left: 20px;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 999px; /* bentuk bubble default */
+}
+
+/* Hover efek gelembung kaca */
+.nav-menu li a:hover {
+    color: #096f15;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(4, 255, 171, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* === HAMBURGER === */
+.hamburger {
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: background 0.3s ease;
+}
+.hamburger:hover {
+    background: white;
+}
+.hamburger svg {
+    width: 24px;
+    height: 24px;
+    stroke: #333;
+}
+.hamburger.active .icon-hamburger {
+    display: none;
+}
+.hamburger.active .icon-close {
+    display: block;
+}
+.icon-close {
+    display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #date {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+    .hamburger {
+        display: flex;
+        z-index: 9999;
+        margin-left: auto;   /* biar tidak nabrak logo */
+        margin-right: 10px;  /* beri jarak */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 15px 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        animation: dropdown 0.3s ease;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+     .nav-menu li a {
+        font-weight: 800;      /* lebih tebal */
+        font-size: 1.1rem;     /* agak besar biar gampang dibaca */
+        color: #000;           /* warna solid */
+        text-shadow: 0 0 2px rgba(255,255,255,0.6); /* sedikit glow supaya lebih kontras */
+    }
+}
+@keyframes dropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
